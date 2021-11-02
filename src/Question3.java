@@ -10,7 +10,7 @@ public class Question3 {
 		return ops;
 	}
 
-	public int qudraticFunction(int n){
+	public int quadraticFunction(int n){
 		int ops = 0;
 		for(int i = 0; i < n; i++){
 			for(int j = 0; j < n; j++){

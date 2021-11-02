@@ -1,9 +1,16 @@
-import java.sql.SQLOutput;
 import java.util.Stack;
 
 public class Question1 {
 	public static void main(String[] args){
-		System.out.println(Stackulator.calculate("( 20 % 4 )"));
+		// Functionality
+		System.out.println(Stackulator.calculate("( ( 4 + 1 ) * 3)"));
+		System.out.println(Stackulator.calculate("( ( 4 + 1 ) + 343 )"));
+		System.out.println(Stackulator.calculate("( ( 4 * 3 ) / 3 ) + 30)"));
+		System.out.println(Stackulator.calculate("(27 - (( ( 4 * 3 ) / 3 ) + 30))"));
+		System.out.println(Stackulator.calculate("(sqrt( 2 ) + (51 - (( ( 4 * 3 ) / 3 ) + 30)) / 252))"));
+
+//		 Failure
+//		System.out.println(Stackulator.calculate("( 20 % 4 ) + (5 % 2)"));
 	}
 
 	public static class Stackulator{
@@ -56,18 +63,19 @@ public class Question1 {
 					vals.push(v);
 				} else {// Token not operator or paren: push double value.
 					boolean findEnd = false;
+
 					int count = 1;
-					while (input.charAt(index + count) == '.' || input.charAt(index + count) < 10) {
+					while (input.charAt(index + count) == '.' || (Character.getNumericValue(input.charAt(index+count)) >= 0 &&Character.getNumericValue(input.charAt(index+count))  < 10)) {
 						findEnd = true;
 						count++;
-						index++;
 					}
 					if(findEnd){
-						vals.push(Double.parseDouble(input.substring(index-1, index+count)));
-						index++;
+						vals.push(Double.parseDouble(input.substring(index, index+count)));
+						index +=count-1;
 					} else {
 						vals.push(Double.parseDouble(s));
 					}
+
 				}
 				index++;
 			}
