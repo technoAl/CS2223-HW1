@@ -9,8 +9,14 @@ public class Question1 {
 		System.out.println(Stackulator.calculate("(27 - (( ( 4 * 3 ) / 3 ) + 30))"));
 		System.out.println(Stackulator.calculate("(sqrt( 2 ) + (51 - (( ( 4 * 3 ) / 3 ) + 30)) / 252))"));
 
-//		 Failure
-//		System.out.println(Stackulator.calculate("( 20 % 4 ) + (5 % 2)"));
+		//Failure
+		System.out.println(Stackulator.calculate("( 6 ^ 3 ) + ( 7 ^ 3 )"));
+
+		//New Operations
+		System.out.println(Stackulator.calculate("(37 % 11)"));
+		System.out.println(Stackulator.calculate("( 20 % 4 ) + (5 % 2)"));
+		System.out.println(Stackulator.calculate("( 5 ^ 2 )"));
+		System.out.println(Stackulator.calculate("(( 6 ^ 3 ) + ( 7 ^ 3 ))"));
 	}
 
 	public static class Stackulator{
