@@ -23,8 +23,8 @@ public class Question1 {
 		
 		public static double calculate(String input){
 
-			MyStack<String> ops = new MyStack<String>();
-			MyStack<Double> vals = new MyStack <Double>();
+			MyStack<String> ops = new MyStack<String>(1000);
+			MyStack<Double> vals = new MyStack <Double>(1000);
 
 			int index = 0;
 			while(index < input.length()) {
