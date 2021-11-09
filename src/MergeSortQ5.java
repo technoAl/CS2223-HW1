@@ -12,7 +12,7 @@ public class MergeSortQ5 {
 	public void sort(int lo, int hi){
 		if(lo < hi){
 			sort(lo, (lo + hi)/2);
-			sort((lo+hi)/2, hi);
+			sort((lo+hi)/2 + 1, hi);
 
 			merge(lo, hi);
 		}
@@ -21,15 +21,15 @@ public class MergeSortQ5 {
 	public void merge(int lo, int hi){
 		int mid = (lo+hi)/2;
 
-		int[] r = new int[mid - lo + 1];
-		int[] l = new int[hi - (mid+1) + 1];
+		int[] l = new int[mid - lo + 1];
+		int[] r = new int[hi - (mid+1) + 1];
 
 		for(int i = 0; i < mid-lo+1; i++){
-			r[i] = arr[lo+i];
+			l[i] = arr[lo+i];
 		}
 
 		for(int i = 0; i < hi - (mid+1) + 1; i++){
-			l[i] = arr[mid+1 + i];
+			r[i] = arr[mid+1 + i];
 		}
 
 		int i = 0, j = 0;

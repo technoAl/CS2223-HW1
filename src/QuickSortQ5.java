@@ -14,7 +14,7 @@ public class QuickSortQ5 {
 		if(lo < hi){
 			int partitionPoint = partition(lo, hi);
 
-			sort(lo, partitionPoint);
+			sort(lo, partitionPoint-1);
 			sort(partitionPoint+1, hi);
 		}
 	}
@@ -23,7 +23,7 @@ public class QuickSortQ5 {
 		int pivot = arr[hi];
 
 		int k = lo;
-		for(int i = lo; i < hi+1; i++){
+		for(int i = lo; i < hi; i++){
 			ops++;
 			if(arr[i] < pivot){
 				swap(k, i);
@@ -32,7 +32,7 @@ public class QuickSortQ5 {
 		}
 
 		swap(k, hi);
-		return k;
+	return k;
 	}
 
 

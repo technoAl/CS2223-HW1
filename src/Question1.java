@@ -23,8 +23,8 @@ public class Question1 {
 		
 		public static double calculate(String input){
 
-			Stack<String> ops = new Stack<String>();
-			Stack<Double> vals = new Stack <Double>();
+			MyStack<String> ops = new MyStack<String>();
+			MyStack<Double> vals = new MyStack <Double>();
 
 			int index = 0;
 			while(index < input.length()) {
@@ -87,5 +87,44 @@ public class Question1 {
 			}
 			return vals.pop();
 		}
+	}
+
+	public static class MyStack<T> {
+		T[] arr;
+		int capacity;
+		int size;
+		int tailPointer;
+
+		public MyStack(int capacity){
+			this.capacity = capacity;
+			size = 0;
+			tailPointer = 0;
+			arr = (T[]) new Object[capacity];
+		}
+
+		public boolean push(T e){
+			if(size >= capacity){
+				return false;
+			}
+
+			arr[tailPointer] = e;
+			tailPointer++;
+			size++;
+			return true;
+		}
+
+		public T pop(){
+			if(size == 0){
+				return null;
+			}
+
+			T val = arr[tailPointer - 1];
+			tailPointer--;
+			size--;
+			arr[tailPointer - 1] = null; // might be unnecessary
+
+			return val;
+		}
+
 	}
 }
