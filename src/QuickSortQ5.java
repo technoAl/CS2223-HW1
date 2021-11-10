@@ -2,7 +2,7 @@ public class QuickSortQ5 {
 	int[] arr;
 	int ops;
 
-	public QuickSortQ5(int[] arr){
+	public QuickSortQ5(int[] arr){ // Constructor
 		this.arr = arr;
 	}
 
@@ -10,7 +10,7 @@ public class QuickSortQ5 {
 		sort(0, arr.length-1);
 	}
 
-	public void sort(int lo, int hi) {
+	public void sort(int lo, int hi) { // Partition, then sort 2 halves around partition
 		if(lo < hi){
 			int partitionPoint = partition(lo, hi);
 
@@ -19,24 +19,25 @@ public class QuickSortQ5 {
 		}
 	}
 
-	public int partition(int lo, int hi){
+	public int partition(int lo, int hi){ // Implementation uses last element as pivot (approach I was most familiar with)
 		int pivot = arr[hi];
 
-		int k = lo;
+		// Loop from lo to hi, and any value < pivot gets swapped to the first half of the array in the next unused spot
+		int k = lo; // stores index of next unused spot
 		for(int i = lo; i < hi; i++){
-			ops++;
+			ops++; // One comparison per loop iteration
 			if(arr[i] < pivot){
 				swap(k, i);
 				k++;
 			}
 		}
 
-		swap(k, hi);
-	return k;
+		swap(k, hi); // Swap pivot into center
+		return k;
 	}
 
 
-	public void swap(int a, int b){
+	public void swap(int a, int b){ // Swap
 		int tmp = arr[a];
 		arr[a] = arr[b];
 		arr[b] = tmp;
