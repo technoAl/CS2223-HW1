@@ -48,6 +48,6 @@ public class Question5 {
 				sum+=sort.ops;
 			}
 		}
-		return sum/iterations; // average ops per search
+		return sum/ ((long)iterations); // average ops per search
 	}
 }
